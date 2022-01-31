@@ -4,7 +4,6 @@ import { container } from "webpack";
 import packageJson from "../package.json";
 
 import common, { WebpackCustomConfiguration } from "./webpack.common";
-// import common, { Configuration } from "./webpack.common";
 
 const PORT = process.env.PORT || 8080;
 
@@ -14,11 +13,15 @@ const config: WebpackCustomConfiguration = {
     publicPath: "auto",
   },
   devServer: {
+    headers: [
+      {
+        key: "Access-Control-Allow-Origin",
+        value: "*",
+      },
+    ],
     historyApiFallback: {
       index: "index.html",
     },
-    // hot: true,
-    // open: true,
     port: PORT,
   },
   plugins: [
@@ -26,7 +29,7 @@ const config: WebpackCustomConfiguration = {
       name: "app1",
       filename: "remoteEntry.js",
       exposes: {
-        "./Button": "./src/components/Button",
+        ".": "./src/components",
       },
       shared: packageJson.dependencies,
     }),

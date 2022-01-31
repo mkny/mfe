@@ -11,7 +11,8 @@
   ],
   "scripts": {
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
-    "con": "yarn workspace @mfe/container run"
+    "con": "yarn workspace @mfe/container run",
+    "app1": "yarn workspace @mfe/app1 run"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.16.7",
