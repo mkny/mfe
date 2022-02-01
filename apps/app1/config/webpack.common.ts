@@ -1,7 +1,6 @@
 import webpack from "webpack";
 import webpackDevServer from "webpack-dev-server";
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import "dotenv/config";
 
 export interface WebpackCustomConfiguration extends webpack.Configuration {
@@ -12,12 +11,7 @@ const common: WebpackCustomConfiguration = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/i,
-        loader: "ts-loader",
-        exclude: ["/node_modules/"],
-      },
-      {
-        test: /\.m?jsx?$/,
+        test: /\.m?[tj]sx?$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
@@ -40,7 +34,6 @@ const common: WebpackCustomConfiguration = {
   ],
   resolve: {
     extensions: [".tsx", ".ts", ".js", ".jsx"],
-    plugins: [new TsconfigPathsPlugin()],
   },
 };
 
