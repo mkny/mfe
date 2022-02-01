@@ -1,7 +1,15 @@
+// @ts-nocheck
+
+import App2 from "app2/Appname";
+
+import { Title } from "./components";
+
 function App() {
   return (
     <div>
-      <h3>App1</h3>
+      <Title>App1</Title>
+      {/* MFE inception */}
+      <App2 />
     </div>
   );
 }

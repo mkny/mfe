@@ -30,7 +30,9 @@ const config: WebpackCustomConfiguration = {
       filename: "remoteEntry.js",
       exposes: {
         ".": "./src/components",
+        "./Appname": "./src/App",
       },
+      remotes: { app2: "app2@http://localhost:3002/remoteEntry.js" },
       shared: packageJson.dependencies,
     }),
   ],

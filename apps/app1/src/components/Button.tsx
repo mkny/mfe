@@ -1,9 +1,10 @@
-interface Props {
+export interface ButtonProps {
   label: string;
+  onClick: () => void;
 }
 
-function Button({ label }: Props) {
-  return <button>{label}</button>;
+function Button({ label, onClick }: ButtonProps) {
+  return <button onClick={onClick}>{label} sa</button>;
 }
 
 export default Button;
